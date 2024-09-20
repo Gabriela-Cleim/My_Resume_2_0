@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">My CV</string>
+    <string name="text_notes">Hellooo, blz? Esse micro aplicativo tem todas as informações das tecnologias que eu possuo algum conhecimento e os níveis de conhecimento. Tem as minhas experiências, cursos, etc. Só clicar nos icons para me conhecer um pouquinho mais. Se tiver alguma dúvida, só clicar no icon de \"help\" que lá vai ter tudo explicadinho. :)</string>
+    <string name="text_doc">Clicando neste botão você acessa o pdf do meu currículo e ele está disponível em português e em inglês.</string>
+    <string name="text_browser">Clicando neste botão você acessa meu LinkedIn e ele está disponível em português e em inglês.</string>
+    <string name="text_language">Clicando neste botão você vê os idiomas que tenho algum conhecimento e os níveis.</string>
+    <string name="text_planguage">Clicando neste botão você vai receber o meu nível de conhecimento nesta linguagem de programação.</string>
+    <string name="text_android">Clicando neste botão você vai receber o meu nível de conhecimento em desenvolvimento mobile.</string>
+    <string name="text_htmlcss">Clicando neste botão você vai receber o meu nível de conhecimento nesta linguagem.</string>
+
+    <string name="alert">Eu possuo conhecimento básico nessa linguagem, mas estou estudando para me desenvolver cada vez mais nesta tecnologia. :) </string>
+    <string name="alert_language">Eu possuo conhecimento intermediário no idioma de inglês e conhecimento básico no idioma de espanhol. :)</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
