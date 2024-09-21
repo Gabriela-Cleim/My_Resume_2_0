@@ -13,27 +13,179 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.mycv.view.GithubReposActivity;
 import com.example.mycv.view.QRCodeDialogFragment;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageButton imgHelp, imgBrowser, imgDoc, imgLanguage, imgJava, imgAndroid, imgJS, imgHtml, imgCss, imgGit;
-    TextView txtHour;
+    private ImageButton imgBtnHelp, imgBtnBrowser, imgBtnKotlin,
+            imgBtnLanguage, imgBtnJava, imgBtnAndroid, imgBtnJS,
+            imgBtnHtml, imgBtnCss, imgBtnGit, imgBtnQrCode;
+    private TextView txtHour;
+    private Typewriter typewriter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        imgId();
+        findId();
         typewriter();
+        dateFormat();
+        buttonActions();
+
+    }
+
+    //Todos os Ids
+    public void findId(){
+        typewriter = findViewById(R.id.typewriter);
+        imgBtnHelp = findViewById(R.id.img_btn_help);
+        imgBtnBrowser = findViewById(R.id.img_btn_browser);
+        imgBtnLanguage = findViewById(R.id.img_btn_language);
+        imgBtnJava = findViewById(R.id.img_btn_java);
+        imgBtnAndroid = findViewById(R.id.img_btn_android);
+        imgBtnJS = findViewById(R.id.img_btn_javascript);
+        imgBtnHtml = findViewById(R.id.img_btn_html);
+        imgBtnCss = findViewById(R.id.img_btn_css);
+        txtHour = findViewById(R.id.hour);
+        imgBtnGit = findViewById(R.id.img_btn_git);
+        imgBtnKotlin = findViewById(R.id.img_btn_kotlin);
+        imgBtnQrCode = findViewById(R.id.img_btn_doc);
+    }
 
 
+    //Declaração do typewriter do notes
+    private void typewriter(){
+        typewriter.setText("");
+        typewriter.setCharacterDelay(100);
+        typewriter.animateText(getString(R.string.text_notes));
+    }
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+
+    //Dialog para as tecnologias
+    private void dialogTechnology(){
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("");
+        alert.setMessage(getString(R.string.alert));
+        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        alert.create().show();
+    }
+
+
+    //Metodo para as ação dos botoes
+    private void buttonActions(){
+
+        imgBtnGit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, GithubReposActivity.class));
+            }
+        });
+
+        imgBtnKotlin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogTechnology();
+            }
+        });
+
+        imgBtnBrowser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/in/gabriela-cleims")));
+            }
+        });
+
+        imgBtnHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, HelpActivity.class));
+            }
+        });
+
+        imgBtnLanguage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogLanguage();
+            }
+        });
+
+        imgBtnJava.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogTechnology();
+            }
+        });
+
+        imgBtnAndroid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogTechnology();
+            }
+        });
+
+        imgBtnJS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogTechnology();
+            }
+        });
+
+        imgBtnHtml.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogTechnology();
+            }
+        });
+
+        imgBtnCss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogTechnology();
+
+            }
+        });
+
+        imgBtnQrCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                QRCodeDialogFragment qrCodeDialogFragment = new QRCodeDialogFragment();
+                qrCodeDialogFragment.show(getSupportFragmentManager(), "qrCodeDialog");
+            }
+        });
+
+    }
+
+
+    //Dialog para o icon de idiomas
+    private void dialogLanguage(){
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle(R.string.language_title);
+        alert.setMessage(getString(R.string.alert_language));
+        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        alert.create().show();
+
+    }
+
+
+    //Metodo para recuperar e mostrar a hora
+    private void dateFormat(){
+        Locale locate = new Locale("pt", "BR");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss", locate);
         Handler handler = new Handler(Looper.getMainLooper());
 
         Runnable runnable = new Runnable() {
@@ -50,137 +202,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Inicia a primeira execução
         handler.post(runnable);
-
-
-
-
-
-
-
-        //Ação do botão de "browser": abrir o navegador com o meu linkedin.
-        imgBrowser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.linkedin.com/in/gabriela-cleims")));
-            }
-        });
-
-        //Ação do botão de "help": Abre a activity "help".
-        imgHelp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, HelpActivity.class));
-            }
-        });
-
-        //Ação do botão de "language": Abrir o dialog.
-        imgLanguage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialogL();
-            }
-        });
-
-        //Ação do botão de "java": Abrir o dialog.
-        imgJava.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog();
-            }
-        });
-
-        //Ação do botão de "android": Abrir o dialog.
-        imgAndroid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog();
-            }
-        });
-
-        //Ação do botão de "javascript": Abrir o dialog.
-        imgJS.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog();
-            }
-        });
-
-        //Ação do botão de "HTML": Abrir o dialog.
-        imgHtml.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog();
-            }
-        });
-
-        //Ação do botão de "CSS": Abrir o dialog.
-        imgCss.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog();
-
-            }
-        });
-
-        ImageButton openQrCodeButton = findViewById(R.id.btnDoc);
-
-        openQrCodeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Abrir o QRCodeDialogFragment
-                QRCodeDialogFragment qrCodeDialogFragment = new QRCodeDialogFragment();
-                qrCodeDialogFragment.show(getSupportFragmentManager(), "qrCodeDialog");
-            }
-        });
     }
 
-    //Id de todas as imagens
-    public void imgId(){
-        imgHelp = findViewById(R.id.btnHelp);
-        imgBrowser = findViewById(R.id.btnbrowser);
-        imgDoc = findViewById(R.id.btnDoc);
-        imgLanguage = findViewById(R.id.language);
-        imgJava = findViewById(R.id.java);
-        imgAndroid = findViewById(R.id.android);
-        imgJS = findViewById(R.id.javascript);
-        imgHtml = findViewById(R.id.html);
-        imgCss = findViewById(R.id.css);
-        txtHour = findViewById(R.id.hour);
 
-    }
 
-    //Declaração do typewriter do notes
-    private void typewriter(){
-        Typewriter typewriter = findViewById(R.id.type);
-        typewriter.setText("");
-        typewriter.setCharacterDelay(100);
-        typewriter.animateText(getString(R.string.text_notes));
-    }
-
-    //Dialog para as tecnologias
-    private void dialog(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setTitle("");
-        alert.setMessage(getString(R.string.alert));
-        alert.setPositiveButton("Ok!", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
-        alert.create().show();
-    }
-
-    //Dialog para o icon de idiomas
-    private void dialogL(){
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setMessage(getString(R.string.alert_language));
-        alert.setPositiveButton("Ok!", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
-        alert.create().show();
-    }
 }

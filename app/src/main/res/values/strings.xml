@@ -8,8 +8,14 @@
     <string name="text_android">Clicando neste botão você vai receber o meu nível de conhecimento em desenvolvimento mobile.</string>
     <string name="text_htmlcss">Clicando neste botão você vai receber o meu nível de conhecimento nesta linguagem.</string>
 
-    <string name="alert">Eu possuo conhecimento básico nessa linguagem, mas estou estudando para me desenvolver cada vez mais nesta tecnologia. :) </string>
+    <string name="alert">Eu possuo conhecimento básico nessa tecnologia, mas estou estudando para me desenvolver cada vez mais nela. :) </string>
     <string name="alert_language">Eu possuo conhecimento intermediário no idioma de inglês e conhecimento básico no idioma de espanhol. :)</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="language_title">Idioma</string>
+    <string name="java_title">Java</string>
+    <string name="javascript_title">Javascript</string>
+    <string name="android_title">Android</string>
+    <string name="html_title">HTML</string>
+    <string name="css_title">CSS</string>
+    <string name="kotlin_title">Kotlin</string>
 </resources>
