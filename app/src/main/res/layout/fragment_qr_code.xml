@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:text="Para acessar meu currículo, basta me escanear ou clicar em acessar. Vai ser rapidinho ;)"
+            android:text="@string/qrcode_title"
             android:textStyle="normal"
             android:textSize="16sp"
             android:textColor="@color/black"
@@ -28,8 +28,7 @@
             android:id="@+id/qrCodeImageView"
             android:layout_width="250dp"
             android:layout_height="250dp"
-            android:layout_marginBottom="10dp"
-            android:contentDescription="QR Code Image"/>
+            android:layout_marginBottom="10dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -37,20 +36,20 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnDownload"
+                android:id="@+id/btn_access"
                 android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/back"
-                android:text="Acessar"
+                android:text="@string/access"
                 android:layout_marginEnd="10dp"/>
 
             <Button
-                android:id="@+id/btnClose"
+                android:id="@+id/btn_close"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/back"
                 android:layout_marginBottom="20dp"
-                android:text="Fechar"/>
+                android:text="@string/close"/>
 
         </LinearLayout>
 

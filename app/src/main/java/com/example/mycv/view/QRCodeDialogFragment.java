@@ -23,16 +23,17 @@ public class QRCodeDialogFragment extends DialogFragment {
 
     private QRCodeViewModel qrCodeViewModel;
     private ImageView qrCodeImageView;
-    private Button closeButton, downloadButton;
+    private Button closeBtn, accessBtn;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_qr_code, container, false);
 
+
         qrCodeImageView = view.findViewById(R.id.qrCodeImageView);
-        closeButton = view.findViewById(R.id.btnClose);
-        downloadButton = view.findViewById(R.id.btnDownload);
+        closeBtn = view.findViewById(R.id.btn_close);
+        accessBtn = view.findViewById(R.id.btn_access);
 
         qrCodeViewModel = new ViewModelProvider(this).get(QRCodeViewModel.class);
 
@@ -43,23 +44,21 @@ public class QRCodeDialogFragment extends DialogFragment {
             }
         });
 
-        // Gerar o QR Code com uma URL (substitua com o seu link)
         String url = "https://docs.google.com/document/d/1Q5GeihxRO2Y30sPlsYgzKGz0jZ-shqeG/edit?usp=sharing&ouid=101041961970455627850&rtpof=true&sd=true";
         qrCodeViewModel.generateQRCode(url);
 
-        // Botão para fechar o Dialog
-        closeButton.setOnClickListener(new View.OnClickListener() {
+        closeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dismiss();
             }
         });
 
-        //Ação do botão de "doc": abrir o google drive com o meu curriculo.
-        downloadButton.setOnClickListener(new View.OnClickListener() {
+
+        accessBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/document/d/1Q5GeihxRO2Y30sPlsYgzKGz0jZ-shqeG/edit?usp=sharing&ouid=101041961970455627850&rtpof=true&sd=true")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
             }
         });
 
@@ -70,10 +69,11 @@ public class QRCodeDialogFragment extends DialogFragment {
     public void onStart() {
         super.onStart();
         if (getDialog() != null && getDialog().getWindow() != null) {
-            // Definir o fundo arredondado
+
             getDialog().getWindow().setBackgroundDrawableResource(R.drawable.rounded_border);
-            // Definir o tamanho do Dialog
+
             getDialog().getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         }
     }
+
 }
