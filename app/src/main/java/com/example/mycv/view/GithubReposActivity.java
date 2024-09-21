@@ -21,7 +21,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mycv.MainActivity;
 import com.example.mycv.R;
 import com.example.mycv.model.Repository;
 import com.example.mycv.viewmodel.GithubReposViewModel;
@@ -32,15 +31,16 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class GithubReposActivity extends AppCompatActivity {
 
-    private TextView tvGithubUsername, txtHourRepo;
+    private TextView txtHourRepo;
     private RecyclerView recyclerViewRepos;
     private Button btnOpenGithub;
     private ReposAdapter adapter;
     private GithubReposViewModel viewModel;
-    private ImageButton imageButtonStart;
+    private ImageButton imgBtnStart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,26 +53,63 @@ public class GithubReposActivity extends AppCompatActivity {
             return insets;
         });
 
+        findId();
+        dateFormat();
+        buttonActions();
 
 
-        tvGithubUsername = findViewById(R.id.tv_github_username);
+        recyclerViewRepos.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new ReposAdapter(new ArrayList<>());
+        recyclerViewRepos.setAdapter(adapter);
+
+
+        viewModel = new ViewModelProvider(this).get(GithubReposViewModel.class);
+
+
+        viewModel.getRepos().observe(this, new Observer<List<Repository>>() {
+            @Override
+            public void onChanged(List<Repository> repos) {
+                if (repos != null) {
+                    adapter.updateData(repos);
+                } else {
+                    Toast.makeText(GithubReposActivity.this, "Erro ao carregar repositórios", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+        viewModel.fetchRepos("Gabriela-Cleim");
+
+
+    }
+
+
+    private void findId(){
         recyclerViewRepos = findViewById(R.id.recycler_view_repos);
         btnOpenGithub = findViewById(R.id.btn_open_github);
-        txtHourRepo = findViewById(R.id.hour_repo);
-        imageButtonStart = findViewById(R.id.img_btn_start_repo);
+        txtHourRepo = findViewById(R.id.txt_hour_repo);
+        imgBtnStart = findViewById(R.id.img_btn_start_repo);
+    }
 
-        tvGithubUsername.setText("Nome da Conta: Gabriela-Cleim"); // Aqui você coloca seu nome de usuário GitHub.
+    private void buttonActions(){
+        btnOpenGithub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Gabriela-Cleim")));
+            }
+        });
 
-
-        imageButtonStart.setOnClickListener(new View.OnClickListener() {
+        imgBtnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(GithubReposActivity.this, MainActivity.class));
             }
         });
+    }
 
-
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+    private void dateFormat(){
+        Locale locate = new Locale("pt", "BR");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss", locate);
         Handler handler = new Handler(Looper.getMainLooper());
 
         Runnable runnable = new Runnable() {
@@ -81,45 +118,12 @@ public class GithubReposActivity extends AppCompatActivity {
                 Date hour = Calendar.getInstance().getTime();
                 String hourFormated = simpleDateFormat.format(hour);
                 txtHourRepo.setText(hourFormated);
-
-                // Atualiza a cada segundo
                 handler.postDelayed(this, 1000);
             }
         };
 
-        // Inicia a primeira execução
         handler.post(runnable);
-
-
-        // Configurar o RecyclerView
-        recyclerViewRepos.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new ReposAdapter(new ArrayList<>());
-        recyclerViewRepos.setAdapter(adapter);
-
-        // Inicializar o ViewModel
-        viewModel = new ViewModelProvider(this).get(GithubReposViewModel.class);
-
-        // Observar mudanças nos dados
-        viewModel.getRepos().observe(this, new Observer<List<Repository>>() {
-            @Override
-            public void onChanged(List<Repository> repos) {
-                if (repos != null) {
-                    adapter.updateData(repos);  // Atualiza a lista de repositórios
-                } else {
-                    Toast.makeText(GithubReposActivity.this, "Erro ao carregar repositórios", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        // Chamar a função do ViewModel para buscar os repositórios
-        viewModel.fetchRepos("Gabriela-Cleim");
-
-        // Botão para abrir GitHub
-        btnOpenGithub.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/Gabriela-Cleim")));
-            }
-        });
     }
+
+
 }

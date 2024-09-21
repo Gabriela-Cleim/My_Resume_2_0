@@ -27,12 +27,11 @@
         app:layout_constraintTop_toBottomOf="@+id/view_top">
 
         <TextView
-            android:id="@+id/tv_github_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:text="Nome da Conta: "
+            android:text="@string/project"
             android:textSize="18sp" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -41,7 +40,6 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:padding="16dp" />
-
 
     </LinearLayout>
 
@@ -52,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Abrir GitHub"
+        android:text="@string/open_github"
         android:layout_marginBottom="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,7 +67,7 @@
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <TextView
-        android:id="@+id/hour_repo"
+        android:id="@+id/txt_hour_repo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"

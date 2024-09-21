@@ -1,4 +1,4 @@
-package com.example.mycv;
+package com.example.mycv.viewmodel;
 
 import android.content.Context;
 import android.os.Handler;
@@ -20,9 +20,9 @@ public class Typewriter extends androidx.appcompat.widget.AppCompatTextView {
         super(context, attrs);
     }
 
-    private Handler handler = new Handler();
+    private final Handler handler = new Handler();
 
-    private Runnable runnable = new Runnable() {
+    private final Runnable runnable = new Runnable() {
         @Override
         public void run() {
             setText(text.subSequence(0, index++));

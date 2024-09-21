@@ -12,19 +12,19 @@ import java.util.List;
 public class GithubReposViewModel extends ViewModel {
 
     private GithubRepository githubRepository;
-    private MutableLiveData<List<Repository>> repos;
+    private MutableLiveData<List<Repository>> repository;
 
     public GithubReposViewModel() {
         githubRepository = new GithubRepository();
-        repos = new MutableLiveData<>(); // Inicialize o LiveData aqui
+        repository = new MutableLiveData<>();
     }
 
     public void fetchRepos(String username) {
-        // Busque os repositórios e atualize o LiveData
-        githubRepository.getRepos(username, repos);
+
+        githubRepository.getRepos(username, repository);
     }
 
     public LiveData<List<Repository>> getRepos() {
-        return repos;
+        return repository;
     }
 }

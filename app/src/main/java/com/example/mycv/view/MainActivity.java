@@ -1,4 +1,4 @@
-package com.example.mycv;
+package com.example.mycv.view;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,8 +13,8 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.mycv.view.GithubReposActivity;
-import com.example.mycv.view.QRCodeDialogFragment;
+import com.example.mycv.R;
+import com.example.mycv.viewmodel.Typewriter;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //Todos os Ids
+
     public void findId(){
         typewriter = findViewById(R.id.typewriter);
         imgBtnHelp = findViewById(R.id.img_btn_help);
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    //Declaração do typewriter do notes
+
     private void typewriter(){
         typewriter.setText("");
         typewriter.setCharacterDelay(100);
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    //Dialog para as tecnologias
+
     private void dialogTechnology(){
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setTitle("");
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    //Metodo para as ação dos botoes
+
     private void buttonActions(){
 
         imgBtnGit.setOnClickListener(new View.OnClickListener() {
@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    //Dialog para o icon de idiomas
+
     private void dialogLanguage(){
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setTitle(R.string.language_title);
@@ -182,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    //Metodo para recuperar e mostrar a hora
+
     private void dateFormat(){
         Locale locate = new Locale("pt", "BR");
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss", locate);
@@ -195,12 +195,10 @@ public class MainActivity extends AppCompatActivity {
                 String hourFormated = simpleDateFormat.format(hour);
                 txtHour.setText(hourFormated);
 
-                // Atualiza a cada segundo
                 handler.postDelayed(this, 1000);
             }
         };
 
-        // Inicia a primeira execução
         handler.post(runnable);
     }
 

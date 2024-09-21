@@ -30,13 +30,13 @@ public class GithubRepository {
                 if (response.isSuccessful()) {
                     data.setValue(response.body());
                 } else {
-                    data.setValue(null); // Para tratar falhas de resposta
+                    data.setValue(null);
                 }
             }
 
             @Override
             public void onFailure(Call<List<Repository>> call, Throwable t) {
-                data.setValue(null); // Para tratamento de falha na chamada
+                data.setValue(null);
             }
         });
     }

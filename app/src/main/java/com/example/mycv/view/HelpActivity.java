@@ -1,4 +1,4 @@
-package com.example.mycv;
+package com.example.mycv.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,23 +10,49 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.mycv.R;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class HelpActivity extends AppCompatActivity {
 
 
     private TextView txtHourHelp;
-    private ImageButton imageButtonStart;
+    private ImageButton imgBtnStart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_help);
-        imgId();
+        findId();
+        buttonActions();
+        dateFormat();
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+
+    }
+
+    public void findId(){
+        imgBtnStart = findViewById(R.id.img_btn_start_help);
+        txtHourHelp = findViewById(R.id.hour_help);
+    }
+
+
+    private void buttonActions(){
+        imgBtnStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HelpActivity.this, MainActivity.class));
+            }
+        });
+    }
+
+
+    private void dateFormat(){
+        Locale locate = new Locale("pt", "BR");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss", locate);
         Handler handler = new Handler(Looper.getMainLooper());
 
         Runnable runnable = new Runnable() {
@@ -36,29 +62,10 @@ public class HelpActivity extends AppCompatActivity {
                 String hourFormated = simpleDateFormat.format(hour);
                 txtHourHelp.setText(hourFormated);
 
-                // Atualiza a cada segundo
                 handler.postDelayed(this, 1000);
             }
         };
 
-        // Inicia a primeira execução
         handler.post(runnable);
-
-        //Ação do botão de "back": Abrir a activity "main".
-        imageButtonStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(HelpActivity.this, MainActivity.class));
-
-            }
-        });
-
-
-    }
-
-    //Id do icon de "back"
-    public void imgId(){
-        imageButtonStart = findViewById(R.id.img_btn_start_help);
-        txtHourHelp = findViewById(R.id.hour_help);
     }
 }

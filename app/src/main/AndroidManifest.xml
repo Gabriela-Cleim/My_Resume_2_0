@@ -18,10 +18,10 @@
             android:name=".view.GithubReposActivity"
             android:exported="false" />
         <activity
-            android:name=".HelpActivity"
+            android:name=".view.HelpActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

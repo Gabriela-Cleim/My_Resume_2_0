@@ -14,14 +14,14 @@ import java.util.List;
 
 public class ReposAdapter extends RecyclerView.Adapter<ReposAdapter.ViewHolder> {
 
-    private List<Repository> reposList;
+    private List<Repository> repositoryList;
 
     public ReposAdapter(List<Repository> reposList) {
-        this.reposList = reposList;
+        this.repositoryList = reposList;
     }
 
     public void updateData(List<Repository> newRepos) {
-        this.reposList = newRepos;
+        this.repositoryList = newRepos;
         notifyDataSetChanged();
     }
 
@@ -34,13 +34,13 @@ public class ReposAdapter extends RecyclerView.Adapter<ReposAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String repoName = reposList.get(position).getName();
+        String repoName = repositoryList.get(position).getName();
         holder.repoNameTextView.setText(repoName);
     }
 
     @Override
     public int getItemCount() {
-        return reposList.size();
+        return repositoryList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

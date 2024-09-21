@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HelpActivity"
+    tools:context=".view.HelpActivity"
     android:background="@color/back">
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_marginTop="50dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
@@ -28,22 +27,42 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical">
+
 
                 <LinearLayout
-                    android:id="@+id/linearL1"
+                    android:id="@+id/linear_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:orientation="horizontal"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="60dp"
-                    android:orientation="vertical">
+                    android:layout_marginTop="60dp">
 
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_height="45dp"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginBottom="25dp"
+                        android:layout_gravity="center"
                         android:src="@drawable/doc" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_doc"
+                        android:textSize="15sp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="10dp"
+                        android:paddingBottom="10dp"
+
+                        />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="10dp">
 
                     <ImageView
                         android:layout_width="55dp"
@@ -51,11 +70,43 @@
                         android:layout_marginBottom="18dp"
                         android:src="@drawable/browser" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_browser"
+                        android:textSize="15sp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:paddingBottom="10dp"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="10dp">
+
                     <ImageView
                         android:layout_width="55dp"
                         android:layout_height="45dp"
                         android:layout_marginBottom="12dp"
                         android:src="@drawable/language2" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/text_language"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="10dp">
 
                     <ImageView
                         android:layout_width="60dp"
@@ -63,23 +114,84 @@
                         android:layout_marginBottom="15dp"
                         android:src="@drawable/iconsjava" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/text_planguage"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="10dp">
+
                     <ImageView
                         android:layout_width="60dp"
                         android:layout_height="55dp"
                         android:layout_marginBottom="15dp"
                         android:src="@drawable/iconandroid" />
 
-                    <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="55dp"
-                        android:src="@drawable/iconsjavascript" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/text_android"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="10dp">
 
                     <ImageView
                         android:layout_width="60dp"
                         android:layout_height="55dp"
-                        android:layout_marginTop="18dp"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:src="@drawable/iconsjavascript" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/text_planguage"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="10dp">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="55dp"
                         android:src="@drawable/iconshtml" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_htmlcss"
+                        android:textSize="15sp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:paddingBottom="10dp"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="10dp">
 
                     <ImageView
                         android:layout_width="60dp"
@@ -87,87 +199,33 @@
                         android:layout_marginBottom="10dp"
                         android:src="@drawable/iconscss" />
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/text_htmlcss"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginStart="10dp">
+
                     <ImageView
-                        android:layout_width="60dp"
+                        android:layout_width="55dp"
                         android:layout_height="55dp"
                         android:layout_marginBottom="10dp"
                         android:src="@drawable/github" />
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/linearL2"
-                    android:layout_width="270dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="80dp"
-                    android:orientation="vertical"
-                    android:paddingEnd="5dp">
-
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:text="@string/text_doc"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:text="@string/text_browser"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:text="@string/text_language"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:text="@string/text_planguage"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:text="@string/text_android"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:text="@string/text_planguage"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
+                        android:layout_marginStart="10dp"
                         android:text="@string/text_htmlcss"
                         android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:text="@string/text_htmlcss"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:text="@string/text_htmlcss"
-                        android:textSize="15sp" />
-
-
                 </LinearLayout>
 
             </LinearLayout>
@@ -206,7 +264,5 @@
         android:layout_marginStart="5dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="4dp"/>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
