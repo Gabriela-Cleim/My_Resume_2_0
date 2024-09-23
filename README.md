@@ -11,6 +11,16 @@ Por isso, decidi criar o design do app nesse estilo **retrô**, em homenagem a e
 - O app acessa todos os meus **projetos no GitHub** via API, oferecendo também a opção de visitar diretamente o meu perfil no GitHub, onde compartilho todos os meus projetos de código aberto.
 - Para facilitar a navegação, o aplicativo possui uma **seção de tutorial**, explicando de forma simples como utilizar todas as suas funcionalidades.
 
-Esse aplicativo é uma maneira prática e inovadora de mostrar meu trabalho e minhas qualificações, garantindo que os recrutadores tenham todas as informações que precisam ao alcance das mãos, de forma rápida e intuitiva.
+## Testes Automatizados 🚀
+Para garantir a qualidade e a confiabilidade do aplicativo, implementei um teste automatizado simples utilizando **JUnit 4** e **Espresso** para a interface de usuário da activity `HelpActivity`, onde verifico se o campo que exibe a hora é atualizado corretamente.
+
+## Teste de UI: Atualização do Texto de Hora ⏲️
+O teste `HelpActivityTest` simula o comportamento da interface de usuário e valida se a hora exibida no TextView da tela de ajuda é atualizada conforme esperado. O teste segue o seguinte fluxo:
+- **Inicia a** `HelpActivity`: Usando o `ActivityScenario` para abrir a tela.
+- **Verifica a visibilidade do TextView:** Certifica-se de que o componente que exibe a hora está visível para o usuário.
+- **Aguarda a atualização da hora:** Utiliza uma pausa para permitir que o TextView seja atualizado.
+- **Compara a hora exibida:** Obtém a hora formatada no padrão `HH:mm:ss` e compara com o valor exibido no TextView.
+
+Esse aplicativo é uma maneira prática de mostrar meu trabalho e minhas qualificações, garantindo que os recrutadores tenham todas as informações que precisam ao alcance das mãos, de forma rápida e intuitiva.
 
 
