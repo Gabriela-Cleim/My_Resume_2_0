@@ -1,4 +1,6 @@
-package com.example.mycv.model;
+package com.example.mycv.model.api;
+
+import com.example.mycv.model.repository.Repository;
 
 import java.util.List;
 

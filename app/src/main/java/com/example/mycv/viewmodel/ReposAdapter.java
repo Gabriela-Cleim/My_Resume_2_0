@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mycv.model.Repository;
+import com.example.mycv.model.repository.Repository;
 
 import java.util.List;
 

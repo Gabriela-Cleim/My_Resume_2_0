@@ -1,6 +1,8 @@
-package com.example.mycv.model;
+package com.example.mycv.model.repository;
 
 import androidx.lifecycle.MutableLiveData;
+
+import com.example.mycv.model.api.GithubApi;
 
 import java.util.List;
 

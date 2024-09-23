@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.mycv.model.GithubRepository;
-import com.example.mycv.model.Repository;
+import com.example.mycv.model.repository.GithubRepository;
+import com.example.mycv.model.repository.Repository;
 
 import java.util.List;
 
