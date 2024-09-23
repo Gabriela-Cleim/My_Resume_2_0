@@ -1,4 +1,4 @@
-package com.example.mycv.model;
+package com.example.mycv.model.repository;
 
 public class Repository {
 

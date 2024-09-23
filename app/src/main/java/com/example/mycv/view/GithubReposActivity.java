@@ -22,7 +22,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycv.R;
-import com.example.mycv.model.Repository;
+import com.example.mycv.model.repository.Repository;
 import com.example.mycv.viewmodel.GithubReposViewModel;
 import com.example.mycv.viewmodel.ReposAdapter;
 
